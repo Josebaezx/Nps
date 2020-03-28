@@ -38,11 +38,12 @@ public class Nps extends javax.swing.JFrame {
         PromotorText = new javax.swing.JTextField();
         DetractorText = new javax.swing.JTextField();
         NeutroText = new javax.swing.JTextField();
-        EncuestadosText = new javax.swing.JTextField();
-        PorcentajeText = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jLabelEncuestados = new javax.swing.JLabel();
+        jLabelPorcentaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(240, 52, 40));
         setResizable(false);
 
         Promotor.setText("Promotor");
@@ -78,11 +79,11 @@ public class Nps extends javax.swing.JFrame {
                             .addComponent(Porcentaje))
                         .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(EncuestadosText, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                            .addComponent(PromotorText, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PromotorText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                             .addComponent(DetractorText, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(NeutroText, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PorcentajeText)))
+                            .addComponent(jLabelEncuestados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelPorcentaje, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -96,24 +97,23 @@ public class Nps extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(Promotor)
-                                            .addComponent(PromotorText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(32, 32, 32)
-                                        .addComponent(Detractor))
-                                    .addComponent(DetractorText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(41, 41, 41)
-                                .addComponent(Neutro))
-                            .addComponent(NeutroText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Promotor)
+                                    .addComponent(PromotorText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32)
+                                .addComponent(Detractor))
+                            .addComponent(DetractorText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(41, 41, 41)
-                        .addComponent(Encuestados))
-                    .addComponent(EncuestadosText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                        .addComponent(Neutro))
+                    .addComponent(NeutroText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Encuestados)
+                    .addComponent(jLabelEncuestados, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(Porcentaje)
-                    .addComponent(PorcentajeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56))
@@ -168,14 +168,14 @@ public class Nps extends javax.swing.JFrame {
     private javax.swing.JLabel Detractor;
     private javax.swing.JTextField DetractorText;
     private javax.swing.JLabel Encuestados;
-    private javax.swing.JTextField EncuestadosText;
     private javax.swing.JLabel Neutro;
     private javax.swing.JTextField NeutroText;
     private javax.swing.JLabel Porcentaje;
-    private javax.swing.JTextField PorcentajeText;
     private javax.swing.JLabel Promotor;
     private javax.swing.JTextField PromotorText;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabelEncuestados;
+    private javax.swing.JLabel jLabelPorcentaje;
     // End of variables declaration//GEN-END:variables
     
     //public int CalculoNps(){}
