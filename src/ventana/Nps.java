@@ -72,7 +72,16 @@ public class Nps extends javax.swing.JFrame {
             }
         });
 
+        jLabelPorcentaje.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+
         jButton2.setText("Clear");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabelEncuestados.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,16 +149,17 @@ public class Nps extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Boton calcular, se fija evento
-        double n1, n2, n3, total, resultado;
+        double n1, n2, n3, total, resta, resultado;
         
         n1= Double.parseDouble(PromotorText.getText());
         n2= Double.parseDouble(DetractorText.getText());
         n3= Double.parseDouble(NeutroText.getText());
         
        total= n1 + n2 + n3;
-       
+       resta= n1 - n2;
+       resultado= resta / total * 100;
        jLabelEncuestados.setText(String.valueOf(total));
-       
+       jLabelPorcentaje.setText(String.valueOf(resultado));
        
        
         
@@ -160,6 +170,18 @@ public class Nps extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // limpiar numeros escritos
+        
+        PromotorText.setText("");
+        DetractorText.setText("");
+        NeutroText.setText("");
+        jLabelEncuestados.setText("");
+        jLabelPorcentaje.setText("");
+        
+        PromotorText.grabFocus();// pone el indicador en promotor para escritura
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
