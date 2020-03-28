@@ -32,6 +32,8 @@ public class Nps extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         Promotor = new javax.swing.JLabel();
         Detractor = new javax.swing.JLabel();
         Neutro = new javax.swing.JLabel();
@@ -41,9 +43,13 @@ public class Nps extends javax.swing.JFrame {
         DetractorText = new javax.swing.JTextField();
         NeutroText = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabelEncuestados = new javax.swing.JLabel();
         jLabelPorcentaje = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabelEncuestados = new javax.swing.JLabel();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(240, 52, 40));
@@ -87,8 +93,8 @@ public class Nps extends javax.swing.JFrame {
                             .addComponent(PromotorText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                             .addComponent(DetractorText, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(NeutroText, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelEncuestados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelPorcentaje, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabelPorcentaje, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelEncuestados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -142,7 +148,7 @@ public class Nps extends javax.swing.JFrame {
         
        total= n1 + n2 + n3;
        
-       jLabelEncuestados= setText(String.valueOf(total));
+       jLabelEncuestados.setText(String.valueOf(total));
        
        
        
@@ -203,6 +209,8 @@ public class Nps extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabelEncuestados;
     private javax.swing.JLabel jLabelPorcentaje;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 
     private JLabel setText(String valueOf) {
