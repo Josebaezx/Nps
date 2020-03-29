@@ -1,5 +1,6 @@
 package ventana;
 
+import java.text.DecimalFormat;
 import javax.swing.JLabel;
 
 /*
@@ -34,6 +35,7 @@ public class Nps extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jFrame1 = new javax.swing.JFrame();
         Promotor = new javax.swing.JLabel();
         Detractor = new javax.swing.JLabel();
         Neutro = new javax.swing.JLabel();
@@ -46,12 +48,32 @@ public class Nps extends javax.swing.JFrame {
         jLabelPorcentaje = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabelEncuestados = new javax.swing.JLabel();
+        Empeora = new javax.swing.JLabel();
+        jLabelResultado2 = new javax.swing.JLabel();
+        Resultado2 = new javax.swing.JLabel();
+        EmpeoraTxt = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        MejoraTxt = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabelResultado3 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("NPS");
         setBackground(new java.awt.Color(240, 52, 40));
         setResizable(false);
 
@@ -73,6 +95,7 @@ public class Nps extends javax.swing.JFrame {
         });
 
         jLabelPorcentaje.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelPorcentaje.setForeground(new java.awt.Color(51, 51, 255));
 
         jButton2.setText("Clear");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -83,34 +106,77 @@ public class Nps extends javax.swing.JFrame {
 
         jLabelEncuestados.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
+        Empeora.setText("Empeora");
+
+        jLabelResultado2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        Resultado2.setText("Resultado-");
+
+        EmpeoraTxt.setText("0");
+        EmpeoraTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmpeoraTxtActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Mejora");
+
+        MejoraTxt.setText("0");
+
+        jLabel2.setText("Resultado+");
+
+        jLabelResultado3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Promotor, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Detractor, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Neutro, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Porcentaje, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(9, 9, 9))
+                            .addComponent(Encuestados, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(9, 9, 9)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(DetractorText, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(PromotorText, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(NeutroText, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabelPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(2, 2, 2)))
+                            .addComponent(jLabelEncuestados, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(Empeora, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Resultado2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Promotor)
-                            .addComponent(Detractor)
-                            .addComponent(Neutro)
-                            .addComponent(Encuestados)
-                            .addComponent(Porcentaje))
-                        .addGap(63, 63, 63)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(PromotorText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                            .addComponent(DetractorText, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NeutroText, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelPorcentaje, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelEncuestados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(EmpeoraTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                            .addComponent(jLabelResultado2, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                            .addComponent(MejoraTxt)
+                            .addComponent(jLabelResultado3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,30 +184,54 @@ public class Nps extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(Encuestados)
+                        .addGap(34, 34, 34)
+                        .addComponent(Porcentaje)
+                        .addGap(10, 10, 10))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(Promotor)
+                                            .addComponent(PromotorText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Empeora)
+                                            .addComponent(EmpeoraTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(29, 29, 29)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(Detractor)
+                                            .addComponent(DetractorText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Resultado2)))
+                                    .addComponent(jLabelResultado2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(35, 35, 35)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(Promotor)
-                                    .addComponent(PromotorText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(32, 32, 32)
-                                .addComponent(Detractor))
-                            .addComponent(DetractorText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(41, 41, 41)
-                        .addComponent(Neutro))
-                    .addComponent(NeutroText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Encuestados)
-                    .addComponent(jLabelEncuestados, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Porcentaje)
-                    .addComponent(jLabelPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                                    .addComponent(Neutro)
+                                    .addComponent(NeutroText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(MejoraTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(17, 17, 17)
+                                        .addComponent(jLabelResultado3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabelEncuestados, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(12, 12, 12))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(23, 23, 23)))
+                        .addComponent(jLabelPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(22, Short.MAX_VALUE))))
         );
 
         pack();
@@ -149,17 +239,44 @@ public class Nps extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Boton calcular, se fija evento
-        double n1, n2, n3, total, resta, resultado;
+        double n1, n2, n3, n4, n5, total, total2, resta, resta2, resultado, resultado2;
+        double total3, resta3, resultado3;
         
         n1= Double.parseDouble(PromotorText.getText());
         n2= Double.parseDouble(DetractorText.getText());
         n3= Double.parseDouble(NeutroText.getText());
+        //n4= Double.parseDouble(EmpeoraTxt.getText());
         
+       DecimalFormat df = new DecimalFormat("#"); //Reducir decimales
        total= n1 + n2 + n3;
+       df.format(total);
+       
        resta= n1 - n2;
+       
+       DecimalFormat df1 = new DecimalFormat("#.00"); //Reducir decimales
        resultado= resta / total * 100;
-       jLabelEncuestados.setText(String.valueOf(total));
-       jLabelPorcentaje.setText(String.valueOf(resultado));
+       df1.format(resultado);
+                
+       jLabelEncuestados.setText(String.valueOf(df.format(total)));
+       jLabelPorcentaje.setText(String.valueOf(df1.format(resultado)));
+       
+       n4= Double.parseDouble(EmpeoraTxt.getText());
+       total2= n1 + n2 + n3+ n4;
+       resta2= n1 - (n2 + n4);
+       DecimalFormat df2 = new DecimalFormat("#.00");
+       resultado2= resta2 / total2 * 100;
+       df2.format(resultado2);
+       
+       jLabelResultado2.setText(String.valueOf(df2.format(resultado2)));
+       
+       n5= Double.parseDouble(MejoraTxt.getText());
+       total3= n1 + n2 + n3+ n5;
+       resta3= (n1 + n5) - n2;
+       DecimalFormat df3 = new DecimalFormat("#.00");
+       resultado3= resta3 / total3 * 100;
+       df3.format(resultado3);
+       
+       jLabelResultado3.setText(String.valueOf(df3.format(resultado3)));
        
        
         
@@ -179,9 +296,17 @@ public class Nps extends javax.swing.JFrame {
         NeutroText.setText("");
         jLabelEncuestados.setText("");
         jLabelPorcentaje.setText("");
+        EmpeoraTxt.setText("0");
+        jLabelResultado2.setText("");
+        MejoraTxt.setText("0");
+        jLabelResultado3.setText("");
         
         PromotorText.grabFocus();// pone el indicador en promotor para escritura
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void EmpeoraTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpeoraTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmpeoraTxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,16 +346,25 @@ public class Nps extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Detractor;
     private javax.swing.JTextField DetractorText;
+    private javax.swing.JLabel Empeora;
+    private javax.swing.JTextField EmpeoraTxt;
     private javax.swing.JLabel Encuestados;
+    private javax.swing.JTextField MejoraTxt;
     private javax.swing.JLabel Neutro;
     private javax.swing.JTextField NeutroText;
     private javax.swing.JLabel Porcentaje;
     private javax.swing.JLabel Promotor;
     private javax.swing.JTextField PromotorText;
+    private javax.swing.JLabel Resultado2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelEncuestados;
     private javax.swing.JLabel jLabelPorcentaje;
+    private javax.swing.JLabel jLabelResultado2;
+    private javax.swing.JLabel jLabelResultado3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
