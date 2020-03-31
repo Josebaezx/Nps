@@ -1,8 +1,9 @@
 package ventana;
 
+import java.awt.Color;
 import java.text.DecimalFormat;
 import javax.swing.JLabel;
-
+import javax.swing.JOptionPane;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,6 +22,7 @@ public class Nps extends javax.swing.JFrame {
     public Nps() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.getContentPane().setBackground(new Color(255, 255, 255));
     }
     
     
@@ -75,6 +77,7 @@ public class Nps extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("NPS");
         setBackground(new java.awt.Color(240, 52, 40));
+        setBounds(new java.awt.Rectangle(200, 200, 200, 200));
         setResizable(false);
 
         Promotor.setText("Promotor");
@@ -167,16 +170,15 @@ public class Nps extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(EmpeoraTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                             .addComponent(jLabelResultado2, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                             .addComponent(MejoraTxt)
                             .addComponent(jLabelResultado3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,6 +240,10 @@ public class Nps extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Boton calcular, se fija evento
+        if(EmpeoraTxt.getText().isEmpty() || MejoraTxt.getText().isEmpty()){
+        JOptionPane.showMessageDialog(this,"Los campos no deben estar vacios, ingrese valores de 0 al 9");
+        }
+        
         double n1, n2, n3, n4, n5, total, total2, resta, resta2, resultado, resultado2;
         double total3, resta3, resultado3;
         
@@ -301,10 +307,12 @@ public class Nps extends javax.swing.JFrame {
         jLabelResultado3.setText("");
         
         PromotorText.grabFocus();// pone el indicador en promotor para escritura
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void EmpeoraTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpeoraTxtActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_EmpeoraTxtActionPerformed
 
     /**
